@@ -27,7 +27,7 @@ retrieve_from_Jexis <- function(id) {
   # go to the page of the dataset
   remDr$navigate(paste0("https://jexis.idiv.de/ddm/data/Showdata/", id))
   
-  # find and click the dropdown menu
+  # find and store the name of the dataset
   webElem1 <- remDr$findElements(using='xpath',
                                  value= '//*[@id="showData"]')
   name <- webElem1[[2]]$getElementText()
