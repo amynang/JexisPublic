@@ -50,8 +50,12 @@ retrieve_from_Jexis <- function(id) {
   webElem1 <- remDr$findElement(using='xpath',
                                 value= '//*[@ext=".csv"]')
   webElem1$clickElement()
+  #Sys.sleep(5)
   
-  data = read.csv(Sys.glob(paste0(temp, "\\", name, "*.csv")), sep = ";")
+  # here, [1] avoids this issue https://stackoverflow.com/a/14420974
+  # it would come up if the file is already there, so it finds 
+  # \filename.csv \filename(1).csv etc
+  data <- read.csv(Sys.glob(paste0(temp, "\\", name, "*.csv"))[1], sep = ";")
   
   # closes firefox remote browser (which you don't see if headless)
   remDr$closeWindow()
