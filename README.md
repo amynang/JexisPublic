@@ -3,7 +3,7 @@ programmatically retrieve public data from the Jexis database
 
 ```
 # example:
-dataset90 <- retrieve_from_Jexis(90)
+dataset90 <- retrieve_from_Jexis(id=90)
 ```
 
 `retrieve_from_Jexis()` currently uses mozilla Firefox, so the browser needs to be installed in 
